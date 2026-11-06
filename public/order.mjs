@@ -34,7 +34,7 @@ export function restoreDraft(value) {
   draft.table = typeof value.table === 'string' && /^(Table 0[1-9]|Table 10|Bar)$/.test(value.table) ? value.table : '';
   draft.guests = typeof value.guests === 'string' && /^[1-8]$/.test(value.guests) ? value.guests : '1';
   draft.note = typeof value.note === 'string' ? value.note.slice(0, 300) : '';
-  draft.discount = Number.isFinite(value.discount) && value.discount >= 0 && value.discount <= 100 ? value.discount : 0;
+  draft.discount = Number.isFinite(value.discount) && value.discount >= 0 && value.discount <= 100 ? Number(value.discount) : 0;
   draft.service = value.service === true;
   if (Array.isArray(value.items)) {
     for (const line of value.items) {

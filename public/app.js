@@ -22,7 +22,7 @@ try {
   saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
   if (saved && saved.version === 1) {
     draft = restoreDraft(saved.draft);
-    sales = Array.isArray(saved.sales) ? saved.sales.filter(validateSale).map(sale => ({ ...sale, draft: restoreDraft(sale.draft) })).slice(-500) : [];
+    sales = Array.isArray(saved.sales) ? saved.sales.filter(validateSale).map(sale => ({ ...sale, number: Number(sale.number), draft: restoreDraft(sale.draft) })).slice(-500) : [];
   }
 } catch {
   storageWarning = true;
