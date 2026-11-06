@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#214e40">
+  <title>Juniper — Bistro EPOS</title>
+  <link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" type="module"></script>
+</head>
+<body>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-orders" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z"/><path d="M9 7h6M9 11h6M9 15h3"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 3v17h17M8 16v-5M13 16V7M18 16V4"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="m9 3-.8 2.4-2.5.5-2 3.4 1.7 2v1.4l-1.7 2 2 3.4 2.5.5L9 21h6l.8-2.4 2.5-.5 2-3.4-1.7-2v-1.4l1.7-2-2-3.4-2.5-.5L15 3Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 7h14l1 14H4L5 7Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></symbol>
+    <symbol id="i-dining" viewBox="0 0 24 24"><path d="M5 3v6m3-6v6M2 3v6a3 3 0 0 0 6 0M5 12v9M17 3c-3 3-4 7 0 9h3M20 3v18"/></symbol>
+    <symbol id="i-table" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="5" rx="1"/><path d="M5 11v9M19 11v9M8 3h8"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M16 4a3 3 0 0 1 0 6M18 14a5 5 0 0 1 3 4v3"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7M14 10v7"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24"><path d="m15 4 5 5M4 20l5-1L21 7l-4-4L5 15l-1 5Z"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 3h8l10 10-8 8L3 11V3Z"/><circle cx="7.5" cy="7.5" r="1"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M2 9h20M6 15h4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 3C8 2 2 9 6 16s16 1 14-13ZM4 21l11-12"/></symbol>
+    <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M4 8h13v7a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8ZM17 9h2a3 3 0 0 1 0 6h-2M7 2v3M12 2v3"/></symbol>
+    <symbol id="i-cake" viewBox="0 0 24 24"><path d="M3 12h18v9H3v-9ZM3 15c3-4 6 4 9 0s6 4 9 0M6 12V8h12v4M12 8V5M12 2v1"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9a3 3 0 1 1 5 2c-2 1-2 1-2 3M12 17h.01"/></symbol>
+  </svg>
+
+  <aside class="sidebar">
+    <a class="brand-mark" href="/" aria-label="Juniper home"><img src="/assets/mark.svg" alt="" width="42" height="42"></a>
+    <nav aria-label="Main navigation">
+      <button class="nav-item active" data-view="till" aria-current="page"><svg><use href="#i-grid"/></svg><span>Point of sale</span></button>
+      <button class="nav-item" data-view="orders"><svg><use href="#i-orders"/></svg><span>Orders</span></button>
+      <button class="nav-item" data-view="overview"><svg><use href="#i-chart"/></svg><span>Overview</span></button>
+    </nav>
+    <div class="sidebar-bottom">
+      <button class="nav-item" id="help-button"><svg><use href="#i-help"/></svg><span>Help</span></button>
+      <button class="nav-item" id="settings-button"><svg><use href="#i-settings"/></svg><span>Settings</span></button>
+      <div class="staff-avatar" title="Demo staff account">JD</div>
+    </div>
+  </aside>
+
+  <div class="workspace">
+    <header class="topbar">
+      <div class="wordmark">juniper<span class="wordmark-dot">.</span><span class="bistro-label">BISTRO & BAR</span></div>
+      <div class="topbar-right"><span class="demo-indicator"><span></span>Local demo</span><span class="topbar-divider"></span><span id="current-date"></span><span class="staff-name">Jamie D.<span>Front of house</span></span><div class="small-avatar">JD</div></div>
+    </header>
+
+    <main id="till-view" class="view till-layout">
+      <section class="menu-panel" aria-label="Menu">
+        <div class="page-heading"><div><div class="eyebrow">A LITTLE HOSPITALITY, A LOT OF HEART</div><h1>Let’s make their day<span>.</span></h1><p>Good food, warm welcomes. What’s on the order?</p></div><div class="open-badge"><span></span> Bistro is open</div></div>
+        <div class="menu-toolbar">
+          <div class="order-modes" aria-label="Order type"><button class="active" data-mode="dine-in" aria-pressed="true"><svg><use href="#i-dining"/></svg>Dine in</button><button data-mode="takeaway" aria-pressed="false"><svg><use href="#i-bag"/></svg>Takeaway</button></div>
+          <label class="search-box"><svg><use href="#i-search"/></svg><input id="menu-search" type="search" placeholder="Search the menu…" aria-label="Search the menu"><kbd>/</kbd></label>
+        </div>
+        <div class="categories" aria-label="Menu categories" id="categories"></div>
+        <div class="menu-section-heading"><h2 id="category-heading">All items <span id="item-count"></span></h2><span class="menu-hint">Made fresh. Served with love.</span></div>
+        <div class="menu-grid" id="menu-grid"></div>
+        <div class="menu-footer"><svg><use href="#i-leaf"/></svg>Seasonal ingredients. Local suppliers. A little Juniper magic.</div>
+      </section>
+
+      <aside class="order-panel" aria-label="Current order">
+        <div class="order-header"><div><h2>Current order <span id="order-count">0</span></h2><p id="order-number">Order #1001 <span>•</span> New order</p></div><button class="icon-button" id="clear-order" aria-label="Clear order" title="Clear order"><svg><use href="#i-trash"/></svg></button></div>
+        <div class="table-details" id="table-details"><label><svg><use href="#i-table"/></svg><select id="table-select" aria-label="Table"><option value="">Select table</option><option>Table 01</option><option>Table 02</option><option>Table 03</option><option>Table 04</option><option>Table 05</option><option>Table 06</option><option>Table 07</option><option>Table 08</option><option>Table 09</option><option>Table 10</option><option>Bar</option></select></label><label><svg><use href="#i-users"/></svg><select id="guests-select" aria-label="Number of guests"><option value="1">1 guest</option><option value="2">2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option><option value="5">5 guests</option><option value="6">6 guests</option><option value="7">7 guests</option><option value="8">8 guests</option></select></label></div>
+        <div class="takeaway-details" id="takeaway-details" hidden><svg><use href="#i-bag"/></svg>Pack it up, make their day.</div>
+        <div class="cart-items" id="cart-items" aria-live="polite"></div>
+        <div class="order-bottom">
+          <button class="order-note" id="order-note-button"><svg><use href="#i-note"/></svg><span id="order-note-label">Add an order note</span><svg class="note-plus"><use href="#i-plus"/></svg></button>
+          <div class="totals"><div><span>Subtotal</span><strong id="subtotal">£0.00</strong></div><div id="discount-row" hidden><button class="text-button" id="edit-discount">Discount</button><strong id="discount-total"></strong></div><div><label class="service-label"><input id="service-toggle" type="checkbox">Service charge (10%)</label><strong id="service-total">£0.00</strong></div><div class="grand-total"><span>Total</span><strong id="grand-total">£0.00</strong></div><p>All prices in GBP · VAT included</p></div>
+          <div class="order-actions"><button class="secondary-button" id="discount-button"><svg><use href="#i-tag"/></svg>Add discount</button></div>
+          <button class="pay-button" id="pay-button" disabled><svg><use href="#i-card"/></svg><span>Charge <span id="pay-total">£0.00</span></span><svg><use href="#i-arrow"/></svg></button>
+          <div class="checkout-caption"><span class="tiny-lock">◇</span> Demo checkout · no real payments</div>
+        </div>
+      </aside>
+    </main>
+
+    <main id="orders-view" class="view secondary-view" hidden>
+      <div class="page-heading"><div><div class="eyebrow">EVERY VISIT, A LITTLE STORY</div><h1>Order history<span>.</span></h1><p>Completed sales, all in one place on this device.</p></div><button class="primary-button return-to-till"><svg><use href="#i-plus"/></svg>New order</button></div>
+      <div class="history-summary" id="history-summary"></div>
+      <div class="history-container"><div class="section-title"><h2>Completed orders</h2><span class="pill">Local records</span></div><div id="order-history"></div></div>
+    </main>
+
+    <main id="overview-view" class="view secondary-view" hidden>
+      <div class="page-heading"><div><div class="eyebrow">THE BIG PICTURE</div><h1>A good day in the making<span>.</span></h1><p>Your bistro’s sales today, at a glance.</p></div><span class="open-badge"><span></span>Today</span></div>
+      <div id="overview-stats" class="overview-stats"></div>
+      <div class="overview-columns"><section class="history-container"><div class="section-title"><h2>Popular on the menu</h2><svg><use href="#i-dining"/></svg></div><div id="popular-items"></div></section><section class="overview-card"><div class="botanical">✳</div><h2>A little more time<br>for your guests.</h2><p>Less time at the till. More time doing what you love. Let’s make the next order a great one.</p><button class="primary-button return-to-till">Back to the till<svg><use href="#i-arrow"/></svg></button></section></div>
+    </main>
+  </div>
+
+  <button class="mobile-order-shortcut" id="mobile-order-shortcut" hidden><svg><use href="#i-bag"/></svg><span id="mobile-order-label">View order</span><svg><use href="#i-arrow"/></svg></button>
+  <dialog id="modal" aria-labelledby="modal-title"><div class="modal-header"><h2 id="modal-title"></h2><button class="icon-button" id="close-modal" aria-label="Close dialog"><svg><use href="#i-close"/></svg></button></div><div id="modal-content"></div></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>
